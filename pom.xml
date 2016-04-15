@@ -12,11 +12,18 @@
 	<packaging>jar</packaging>
 
 	<repositories>
-		<repository>
-			<id>nanonet</id>
-			<url>https://jenkins.nanonet/plugin/repository/everything/</url>
+        <repository>
+			<id>artifactory-snapshots</id>
+			<url>http://artifactory.openshift.nanonet/artifactory/libs-snapshot-local/</url>
 		</repository>
 	</repositories>
+
+	<pluginRepositories>
+        <pluginRepository>
+			<id>jcenter</id>
+			<url>http://jcenter.bintray.com</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<dependencies>
 		<dependency>
@@ -145,6 +152,29 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+	            <groupId>org.jfrog.buildinfo</groupId>
+	            <artifactId>artifactory-maven-plugin</artifactId>
+	            <version>2.4.1</version>
+	            <inherited>false</inherited>
+	            <executions>
+	                <execution>
+	                    <id>build-info</id>
+	                    <goals>
+	                        <goal>publish</goal>
+	                    </goals>
+	                    <configuration>
+	                        <publisher>
+	                            <contextUrl>http://artifactory.openshift.nanonet/artifactory</contextUrl>
+	                            <username>${artifactory.user}</username>
+	                            <password>${artifactory.password}</password>
+	                            <repoKey>libs-release-local</repoKey>
+	                            <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+	                        </publisher>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>		
 		</plugins>
 	</build>
 </project>
