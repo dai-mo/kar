@@ -11,20 +11,6 @@
 
 	<packaging>jar</packaging>
 
-	<repositories>
-        <repository>
-			<id>artifactory-snapshots</id>
-			<url>${artifactory.base.url}/artifactory/libs-snapshot-local/</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-        <pluginRepository>
-			<id>jcenter</id>
-			<url>http://jcenter.bintray.com</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.dcs</groupId>
