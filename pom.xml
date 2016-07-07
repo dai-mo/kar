@@ -4,12 +4,16 @@
 
 	<groupId>org.dcs</groupId>
 	<artifactId>org.dcs.kar</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 
 	<name>DCS Apache Karaf Features Project</name>
 	<description>Generates a .kar file which includes all core DCS bundles</description>
 
 	<packaging>jar</packaging>
+
+    <properties>
+        <snapshotDependencyAllowed>true</snapshotDependencyAllowed>
+    </properties>
 
 	<dependencies>
 		<!--<dependency>-->
@@ -20,7 +24,7 @@
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.core</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>0.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.cdi</groupId>
@@ -32,12 +36,12 @@
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.test</artifactId>
 			<scope>test</scope>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>0.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.api</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>0.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -136,7 +140,32 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>	
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <!-- Make sure that only non-snapshot versions are used for the dependencies.
+                             Only active when property 'snapshotDependencyAllowed' is false. -->
+                        <id>enforce-no-snapshots</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${snapshotDependencyAllowed}</skip>
+                            <rules>
+                                <requireReleaseDeps>
+                                    <message>No Snapshots Allowed!</message>
+                                </requireReleaseDeps>
+                                <requireReleaseVersion>
+                                    <message>No Snapshots Allowed!</message>
+                                </requireReleaseVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 </project>
