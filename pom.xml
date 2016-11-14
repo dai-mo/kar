@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.dcs</groupId>
@@ -11,20 +11,30 @@
 
 	<packaging>jar</packaging>
 
-    <properties>
-        <snapshotDependencyAllowed>true</snapshotDependencyAllowed>
-    </properties>
+	<properties>
+		<snapshotDependencyAllowed>true</snapshotDependencyAllowed>
+	</properties>
 
 	<dependencies>
-		<!--<dependency>-->
-			<!--<groupId>org.dcs</groupId>-->
-			<!--<artifactId>org.dcs.data</artifactId>-->
-			<!--<version>1.0.0-SNAPSHOT</version>-->
-		<!--</dependency>-->
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.core</artifactId>
 			<version>0.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.dcs</groupId>
+			<artifactId>org.dcs.api</artifactId>
+			<version>0.3.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.dcs</groupId>
+			<artifactId>org.dcs.commons</artifactId>
+			<version>0.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.paranamer</groupId>
+			<artifactId>paranamer</artifactId>
+			<version>2.8</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.cdi</groupId>
@@ -39,11 +49,6 @@
 			<version>0.1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.dcs</groupId>
-			<artifactId>org.dcs.api</artifactId>
-			<version>0.3.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
 			<version>1.1.3</version>
@@ -52,7 +57,7 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.1.3</version>
-        </dependency>
+		</dependency>
 	</dependencies>
 	<build>
 		<pluginManagement>
@@ -88,31 +93,31 @@
 					</execution>
 				</executions>
 			</plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <!-- Make sure that only non-snapshot versions are used for the dependencies.
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<executions>
+					<execution>
+						<!-- Make sure that only non-snapshot versions are used for the dependencies.
                              Only active when property 'snapshotDependencyAllowed' is false. -->
-                        <id>enforce-no-snapshots</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <skip>${snapshotDependencyAllowed}</skip>
-                            <rules>
-                                <requireReleaseDeps>
-                                    <message>No Snapshots Allowed!</message>
-                                </requireReleaseDeps>
-                                <requireReleaseVersion>
-                                    <message>No Snapshots Allowed!</message>
-                                </requireReleaseVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+						<id>enforce-no-snapshots</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<skip>${snapshotDependencyAllowed}</skip>
+							<rules>
+								<requireReleaseDeps>
+									<message>No Snapshots Allowed!</message>
+								</requireReleaseDeps>
+								<requireReleaseVersion>
+									<message>No Snapshots Allowed!</message>
+								</requireReleaseVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
