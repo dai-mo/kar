@@ -13,12 +13,18 @@
 
 	<properties>
 		<snapshotDependencyAllowed>true</snapshotDependencyAllowed>
+		<database>postgres</database>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.core</artifactId>
+			<version>0.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.dcs</groupId>
+			<artifactId>org.dcs.data.${database}</artifactId>
 			<version>0.2.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -30,6 +36,11 @@
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.commons</artifactId>
 			<version>0.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.thoughtworks.paranamer</groupId>
