@@ -13,7 +13,6 @@
 
 	<properties>
 		<snapshotDependencyAllowed>true</snapshotDependencyAllowed>
-		<database>postgres</database>
 	</properties>
 
 	<dependencies>
@@ -24,7 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.dcs</groupId>
-			<artifactId>org.dcs.data.${database}</artifactId>
+			<artifactId>org.dcs.data</artifactId>
 			<version>0.2.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
