@@ -23,6 +23,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.dcs</groupId>
+			<artifactId>org.dcs.data</artifactId>
+			<version>0.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.api</artifactId>
 			<version>0.3.0-SNAPSHOT</version>
 		</dependency>
@@ -30,6 +35,11 @@
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.commons</artifactId>
 			<version>0.2.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.thoughtworks.paranamer</groupId>
