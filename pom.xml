@@ -19,22 +19,22 @@
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.core</artifactId>
-			<version>0.2.0-SNAPSHOT</version>
+			<version>0.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.data</artifactId>
-			<version>0.2.0-SNAPSHOT</version>
+			<version>0.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.api</artifactId>
-			<version>0.3.0-SNAPSHOT</version>
+			<version>0.3.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.dcs</groupId>
 			<artifactId>org.dcs.commons</artifactId>
-			<version>0.2.0-SNAPSHOT</version>
+			<version>0.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.enterprise</groupId>
