@@ -4,7 +4,7 @@
 
 	<groupId>org.dcs</groupId>
 	<artifactId>org.dcs.kar</artifactId>
-	<version>0.3.0-SNAPSHOT</version>
+	<version>0.3.0</version>
 
 	<name>DCS Apache Karaf Features Project</name>
 	<description>Generates a .kar file which includes all core DCS bundles</description>
