@@ -1,0 +1,42 @@
+
+pipeline:
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - .m2
+    volumes:
+      - /tmp/cache:/cache
+  nar-build:
+    image: maven:3.5-alpine
+    commands:
+      - mkdir ~/.m2
+      - cp settings.xml ~/.m2
+      - mvn -Dmaven.repo.local=./.m2 install
+    secrets: [ artifactory_host, artifactory_url, artifactory_username, artifactory_password ]
+  nar-publish:
+    image: maven:3.5-alpine
+    commands:
+      - mkdir ~/.m2
+      - cp settings.xml ~/.m2
+      - mvn -Dmaven.repo.local=./.m2 deploy
+    secrets: [ artifactory_host, artifactory_url, artifactory_username, artifactory_password ]
+    when:
+      branch: master
+      status: [ success ]
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - .m2
+    volumes:  
+      - /tmp/cache:/cache
+  slack:
+    image: plugins/slack
+    channel: builds
+    secrets: [ slack_webhook ]
+    when:
+      branch: master
+      status: [ success, failure ]
+
+
