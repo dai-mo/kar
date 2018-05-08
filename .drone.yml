@@ -7,14 +7,14 @@ pipeline:
       - .m2
     volumes:
       - /tmp/cache:/cache
-  nar-build:
+  kar-build:
     image: maven:3.5-alpine
     commands:
       - mkdir ~/.m2
       - cp settings.xml ~/.m2
       - mvn -Dmaven.repo.local=./.m2 install
     secrets: [ artifactory_host, artifactory_url, artifactory_username, artifactory_password ]
-  nar-publish:
+  kar-publish:
     image: maven:3.5-alpine
     commands:
       - mkdir ~/.m2
