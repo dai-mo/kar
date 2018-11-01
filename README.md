@@ -1,6 +1,9 @@
-# Alambeek Karaf Bundle Project
+# Daimo Karaf Bundle Project
+
+This project generates a (Karaf Archive) bundle containing daimo processor services to be deployed on a [Apache Karaf](https://karaf.apache.org/) instance. These [OSGI](https://www.osgi.org/) services are made available by a [Jetty](https://www.eclipse.org/jetty/) server via SOAP. The corrsponding WSDL definitions are automatically generated and published to a [Zookeeper](https://zookeeper.apache.org/) instance by [Apache CXF](http://cxf.apache.org/). These published WSDL definitions are then used by the Daimo Remote library access the services remotely.
 
 # License
+
 Copyright (c) 2017-2018 brewlabs SAS
 
 Licensed under the Apache License, Version 2.0 (the "License");
